@@ -11,7 +11,7 @@ datasets:
    trailpower:
       iri: http://opencaesar.io/trailpower/bundle
       url: http://localhost:3030/trailpower
-      sources: [ 'src/oml/trailpower' ]
+      sources: [ 'src/oml/opencaesar.io/trailpower' ]
       queries: src/sparql/opencaesar.io/trailpower
    sierra:
       iri: http://opencaesar.io/sierra/bundle
