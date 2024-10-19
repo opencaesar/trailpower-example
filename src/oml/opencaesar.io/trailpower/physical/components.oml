@@ -6,7 +6,7 @@ description <http://opencaesar.io/trailpower/physical/components#> as components
 
 	extends <http://opencaesar.io/trailpower/physical/capabilities#> as capabilities
 
-	// Components and their ports
+	// Components
 
 	instance Wifi_Router : component:System [
 		component:hasPort Wifi_Router.port1, Wifi_Router.port2
@@ -261,22 +261,22 @@ description <http://opencaesar.io/trailpower/physical/components#> as components
 	// Paths
 	
 	instance Cable : component:Path [
-		base:contains CBL0UD, CBL-CBL, B-CBL
+		base:aggregates CBL0UD, CBL-CBL, B-CBL
 	]
 
 	instance Telemetry : component:Path [
-		base:contains Ph-A, A-A, A-WR, WR-WR, WR-I, I-I, I-TK
+		base:aggregates Ph-A, A-A, A-WR, WR-WR, WR-I, I-I, I-TK
 	]
 
 	instance SC-CIB : component:Path [
-		base:contains BP-CB, CB-CIB
+		base:aggregates BP-CB, CB-CIB
 	]
 
 	instance CIB-TPCBA : component:Path [
-		base:contains TPCBA-CB, CB-CIB
+		base:aggregates TPCBA-CB, CB-CIB
 	]
 
 	instance LH : component:Path [
-		base:contains CB-LH, CB-CIB
+		base:aggregates CB-LH, CB-CIB
 	]
 }

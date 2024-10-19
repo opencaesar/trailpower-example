@@ -13,12 +13,12 @@ vocabulary <http://opencaesar.io/sierra/component#> as component {
 		to Port
 		forward sendsTo
 		reverse receivesFrom
-	] < base:ContainableElement [
-		restricts all base:isContainedIn to Path
+	] < base:AggregatableElement [
+		restricts all base:isAggregatedIn to Path
 	]
 
-	concept Path < base:ContainableElement [
-		restricts all base:contains to Link
+	concept Path < base:AggregatableElement [
+		restricts all base:aggregates to Link
 	]
 
 	aspect PortedElement

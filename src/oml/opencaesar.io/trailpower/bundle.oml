@@ -13,4 +13,8 @@ description bundle <http://opencaesar.io/trailpower/bundle#> as ^bundle {
 	includes <http://opencaesar.io/trailpower/logical/functions#>
 	includes <http://opencaesar.io/trailpower/logical/components#>
 
+	includes <http://opencaesar.io/trailpower/physical/capabilities#>
+	includes <http://opencaesar.io/trailpower/physical/functions#>
+	includes <http://opencaesar.io/trailpower/physical/components#>
+
 }
