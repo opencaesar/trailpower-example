@@ -170,7 +170,7 @@ task save(type:io.opencaesar.owl.save.OwlSaveTask, group:"oml") {
 task owlToOml(type:io.opencaesar.owl2oml.Owl2OmlTask, group:"oml", dependsOn: [downloadDependencies, save]) {
 	inputCatalogPath = save.catalogPath
 	outputCatalogPath = file('catalog.xml')
-	doNotUpdatePaths = [ file('build/oml') ] + oml.dataset.doNotUpdate.collect{f -> file(f)}
+	sourcePaths = oml.dataset.sources.collect{f -> file(f)}
 	inputFileExtensions = ['ttl']
 	outputFileExtension = 'oml'
 }
