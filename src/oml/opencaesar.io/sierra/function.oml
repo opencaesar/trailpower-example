@@ -1,0 +1,81 @@
+vocabulary <http://opencaesar.io/sierra/function#> as function {
+
+	extends <http://opencaesar.io/sierra/base#> as base
+
+	extends <http://opencaesar.io/sierra/capability#> as capability
+
+	extends <http://opencaesar.io/sierra/component#> as component
+
+	aspect ExchangeElement
+
+	relation entity Exchange [
+		from ExchangeElement
+		to ExchangeElement
+		forward sendsTo
+		reverse receivesFrom
+	] < base:AggregatableElement [
+		restricts all base:isAggregatedIn to Chain
+	]
+
+	concept Chain < base:AggregatableElement [
+		restricts all base:aggregates to Exchange
+	]
+
+	concept Function < ExchangeElement
+
+	concept Port < ExchangeElement
+
+	relation hasPort [
+		from Function
+		to Port
+		reverse isPortOf
+		inverse functional
+	]
+
+	concept Input < Port
+
+	relation hasInput [
+		from Function
+		to Input
+		reverse isInputOf
+	] < hasPort
+
+	concept Output < Port
+
+	relation hasOutput [
+		from Function
+		to Output
+		reverse isOutputOf
+	] < hasPort
+
+	concept Item
+
+	relation conveys [
+		from Exchange
+		to Item
+		reverse isConveyedBy
+		functional
+	]
+
+	relation implements [
+		from Chain
+		to capability:Capability
+		reverse isImplementedBy
+		functional
+		inverse functional
+	]
+
+	aspect PerformingElement
+
+	relation performs [
+		from PerformingElement
+		to Function
+		reverse isPerformedBy
+	]
+
+	ref concept capability:Actor < PerformingElement
+
+	ref concept capability:Entity < PerformingElement
+
+	ref concept component:Component < PerformingElement
+}

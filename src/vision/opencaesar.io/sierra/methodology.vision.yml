@@ -1,0 +1,6 @@
+methodology:
+  iri: http://opencaesar.io/sierra/methodolody
+  label: Sierra Methodology
+  description: This is the Sierra methodology
+  viewpoints:
+    - http://opencaesar.io/sierra/capabilities

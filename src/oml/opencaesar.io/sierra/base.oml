@@ -1,0 +1,37 @@
+vocabulary <http://opencaesar.io/sierra/base#> as base {
+
+	annotation property label
+
+	annotation property ^description
+
+	aspect ContainableElement
+
+	relation contains [
+		from ContainableElement
+		to ContainableElement
+		reverse isContainedIn
+		irreflexive
+		asymmetric
+		inverse functional
+	]
+
+	aspect AggregatableElement
+
+	relation aggregates [
+		from AggregatableElement
+		to AggregatableElement
+		reverse isAggregatedIn
+		irreflexive
+		asymmetric
+	]
+
+	aspect SpecializableElement
+
+	relation specializes [
+		from SpecializableElement
+		to SpecializableElement
+		reverse isSpecializedBy
+		transitive
+	]
+
+}

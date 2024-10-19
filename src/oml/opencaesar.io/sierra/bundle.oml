@@ -1,0 +1,16 @@
+vocabulary bundle <http://opencaesar.io/sierra/bundle#> as ^bundle {
+	
+	includes <http://opencaesar.io/sierra/base#>
+
+	includes <http://opencaesar.io/sierra/requirement#>
+
+	includes <http://opencaesar.io/sierra/capability#>
+
+	includes <http://opencaesar.io/sierra/function#>
+
+	includes <http://opencaesar.io/sierra/scenario#>
+
+	includes <http://opencaesar.io/sierra/component#>
+
+	includes <http://opencaesar.io/sierra/behavior#>
+}

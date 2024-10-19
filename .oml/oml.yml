@@ -1,0 +1,20 @@
+project:
+   title: Power Trail Example
+   description: This is the power trail system description in OML
+   group: io.opencaesar
+   version: 1.0.0
+
+dependencies:
+   - io.opencaesar.ontologies:core-vocabularies:5.+
+
+datasets:
+   trailpower:
+      iri: http://opencaesar.io/trailpower/bundle
+      url: http://localhost:3030/trailpower
+      sources: src/oml/trailpower
+      queries: src/sparql/opencaesar.io/trailpower
+   sierra:
+      iri: http://opencaesar.io/sierra/bundle
+      url: http://localhost:3030/sierra
+      sources: src/oml/sierra
+      queries: src/sparql/opencaesar.io/sierra
