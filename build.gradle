@@ -146,7 +146,7 @@ task load(group:"oml", dependsOn: [loadInf, loadTdb])
  */
 task query(type:io.opencaesar.owl.query.OwlQueryTask, group:"oml", dependsOn: load) {
 	inputs.files(load.inputs.files) // rerun when the dataset changes
-	endpointURL = oml.dataset.url
+	endpointURL = oml.dataset.url+".inf"
 	queryPath = file(oml.dataset.queries)
 	resultPath = file("build/results/${oml.dataset.name}")
 	format = 'json'
