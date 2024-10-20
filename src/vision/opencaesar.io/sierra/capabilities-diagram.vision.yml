@@ -95,7 +95,7 @@ viewpoint:
                   graph <$description> { <$description#Capabilbity> a capability:Entity }
                 }
           edges:
-            Actor:
+            Involves:
               label: Involves
               pallette: Capabilities
               definition: *Involves
