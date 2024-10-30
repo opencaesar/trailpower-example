@@ -1,0 +1,16 @@
+{
+	"nodes":[
+		{"id":"fecee8a9e46143b7","type":"group","x":-340,"y":-740,"width":640,"height":140,"color":"6","label":"Operational"},
+		{"id":"fe63ed435f752905","type":"group","x":-340,"y":-540,"width":640,"height":120,"label":"System"},
+		{"id":"fccc4ef2a4ec60cc","type":"group","x":-340,"y":-360,"width":640,"height":120,"label":"Logical"},
+		{"id":"54fb24f6fedbefec","type":"group","x":-340,"y":-180,"width":640,"height":120,"label":"Physcal"},
+		{"id":"9a3c51ecf31de9f9","type":"text","text":"[[Operational Functions|Functions]]","x":-68,"y":-700,"width":140,"height":60,"color":"6"},
+		{"id":"e7d877ef326593ec","type":"text","text":"[[Operational Capabilities|Capabilities]]","x":-300,"y":-695,"width":140,"height":50,"color":"6"}
+	],
+	"edges":[
+		{"id":"1c7511b593606acd","fromNode":"e7d877ef326593ec","fromSide":"right","toNode":"9a3c51ecf31de9f9","toSide":"left"},
+		{"id":"f20b65d375e895df","fromNode":"fecee8a9e46143b7","fromSide":"bottom","toNode":"fe63ed435f752905","toSide":"top"},
+		{"id":"0d8b681f29c4d5ee","fromNode":"fe63ed435f752905","fromSide":"bottom","toNode":"fccc4ef2a4ec60cc","toSide":"top"},
+		{"id":"dc563cc32b819521","fromNode":"fccc4ef2a4ec60cc","fromSide":"bottom","toNode":"54fb24f6fedbefec","toSide":"top"}
+	]
+}

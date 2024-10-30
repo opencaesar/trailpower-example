@@ -1,5 +1,0 @@
-view:
-  iri: http://opencaesar.io/trailpower/operational/capabilities-diagram
-  label: Operational Capabilities
-  description: The operational capabilities of the powertrail system
-  viewpoint: http://opencaesar.io/sierra/capabilities-diagram

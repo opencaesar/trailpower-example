@@ -1,15 +1,11 @@
 vocabulary <http://opencaesar.io/sierra/base#> as base {
 
-	annotation property label
-
-	annotation property ^description
-
 	aspect ContainableElement
 
 	relation contains [
 		from ContainableElement
 		to ContainableElement
-		reverse isContainedIn
+		reverse isContainedBy
 		irreflexive
 		asymmetric
 		inverse functional
@@ -20,7 +16,7 @@ vocabulary <http://opencaesar.io/sierra/base#> as base {
 	relation aggregates [
 		from AggregatableElement
 		to AggregatableElement
-		reverse isAggregatedIn
+		reverse isAggregatedBy
 		irreflexive
 		asymmetric
 	]
@@ -34,4 +30,7 @@ vocabulary <http://opencaesar.io/sierra/base#> as base {
 		transitive
 	]
 
+	annotation property label
+
+	annotation property ^description
 }

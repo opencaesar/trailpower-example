@@ -1,0 +1,11 @@
+{
+  "server_url": "https://www.plantuml.com/plantuml",
+  "header": "!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml\n",
+  "debounce": 3,
+  "localJar": "",
+  "javaPath": "java",
+  "dotPath": "dot",
+  "defaultProcessor": "svg",
+  "cache": 60,
+  "exportPath": ""
+}

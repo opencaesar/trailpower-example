@@ -1,7 +1,7 @@
 viewpoint:
   iri: http://opencaesar.io/sierra/capabilities-diagram
   label: Capabilities Diagram
-  description: The Sierra Capabilities diagram viewpoint
+  description: The Sierra Capabilities diagram
   diagram:
     query: |
       prefix oml: <http://opencaesar.io/oml#>

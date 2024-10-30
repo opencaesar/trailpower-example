@@ -1,52 +1,24 @@
 vocabulary <http://opencaesar.io/sierra/function#> as function {
 
-	extends <http://opencaesar.io/sierra/base#> as base
+	extends <http://www.w3.org/2002/07/owl#> as owl
 
-	extends <http://opencaesar.io/sierra/capability#> as capability
+	extends <http://opencaesar.io/sierra/base#> as base
 
 	extends <http://opencaesar.io/sierra/component#> as component
 
-	aspect ExchangeElement
+	extends <http://opencaesar.io/sierra/capability#> as capability
+
+	aspect ExchangingElement
 
 	relation entity Exchange [
-		from ExchangeElement
-		to ExchangeElement
+		from ExchangingElement
+		to ExchangingElement
 		forward sendsTo
 		reverse receivesFrom
 	] < base:AggregatableElement [
-		restricts all base:isAggregatedIn to Chain
+		restricts all base:aggregates to owl:Nothing
+		restricts all base:isAggregatedBy to Chain
 	]
-
-	concept Chain < base:AggregatableElement [
-		restricts all base:aggregates to Exchange
-	]
-
-	concept Function < ExchangeElement
-
-	concept Port < ExchangeElement
-
-	relation hasPort [
-		from Function
-		to Port
-		reverse isPortOf
-		inverse functional
-	]
-
-	concept Input < Port
-
-	relation hasInput [
-		from Function
-		to Input
-		reverse isInputOf
-	] < hasPort
-
-	concept Output < Port
-
-	relation hasOutput [
-		from Function
-		to Output
-		reverse isOutputOf
-	] < hasPort
 
 	concept Item
 
@@ -55,6 +27,11 @@ vocabulary <http://opencaesar.io/sierra/function#> as function {
 		to Item
 		reverse isConveyedBy
 		functional
+	]
+
+	concept Chain < base:AggregatableElement [
+		restricts all base:aggregates to Exchange
+		restricts all base:isAggregatedBy to owl:Nothing
 	]
 
 	relation implements [
@@ -67,15 +44,43 @@ vocabulary <http://opencaesar.io/sierra/function#> as function {
 
 	aspect PerformingElement
 
+	ref concept capability:Actor < PerformingElement
+
+	ref concept capability:Entity < PerformingElement
+
+	ref concept component:Component < PerformingElement
+
+	concept Function < ExchangingElement
+
 	relation performs [
 		from PerformingElement
 		to Function
 		reverse isPerformedBy
 	]
 
-	ref concept capability:Actor < PerformingElement
+	concept Pin < ExchangingElement
 
-	ref concept capability:Entity < PerformingElement
+	relation hasPin [
+		from Function
+		to Pin
+		reverse isPinOf
+		inverse functional
+	]
 
-	ref concept component:Component < PerformingElement
+	concept Input < Pin
+
+	relation hasInput [
+		from Function
+		to Input
+		reverse isInputOf
+	] < hasPin
+
+	concept Output < Pin
+
+	relation hasOutput [
+		from Function
+		to Output
+		reverse isOutputOf
+	] < hasPin
+
 }

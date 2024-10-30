@@ -1,45 +1,44 @@
 vocabulary <http://opencaesar.io/sierra/component#> as component {
 
-	extends <http://opencaesar.io/sierra/base#> as base
-
 	extends <http://www.w3.org/2002/07/owl#> as owl
 
-	extends <http://opencaesar.io/sierra/capability#> as capability
+	extends <http://opencaesar.io/sierra/base#> as base
 
-	concept Port
+	concept Interface
 
-	relation entity Link [
-		from Port
-		to Port
+	relation entity Connection [
+		from Interface
+		to Interface
 		forward sendsTo
 		reverse receivesFrom
 	] < base:AggregatableElement [
-		restricts all base:isAggregatedIn to Path
+		restricts all base:aggregates to owl:Nothing
+		restricts all base:isAggregatedBy to Path
 	]
 
 	concept Path < base:AggregatableElement [
-		restricts all base:aggregates to Link
+		restricts all base:aggregates to Connection
+		restricts all base:isAggregatedBy to owl:Nothing
 	]
 
-	aspect PortedElement
+	aspect PresentingElement
 
-	relation hasPort [
-		from PortedElement
-		to Port
-		reverse isPortOf
+	relation presents [
+		from PresentingElement
+		to Interface
+		reverse isPresentedBy
 		inverse functional
 	]
 
-	concept Component < base:ContainableElement, PortedElement [
+	concept Component < base:ContainableElement, base:SpecializableElement, PresentingElement [
 		restricts all base:contains to Component
-		restricts all base:isContainedIn to Component
+		restricts all base:isContainedBy to Component
+		restricts all base:specializes to Component
+		restricts all base:isSpecializedBy to Component
 	]
 
 	concept System < Component [
-		restricts all base:isContainedIn to owl:Nothing
+		restricts all base:isContainedBy to owl:Nothing
 	]
 
-	ref concept capability:Actor < PortedElement
-
-	ref concept capability:Entity < PortedElement
 }

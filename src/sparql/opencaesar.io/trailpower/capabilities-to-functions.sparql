@@ -1,4 +1,5 @@
 PREFIX capability:        <http://opencaesar.io/sierra/capability#>
+PREFIX component:        <http://opencaesar.io/sierra/component#>
 PREFIX function:        <http://opencaesar.io/sierra/function#>
 PREFIX base:        <http://opencaesar.io/sierra/base#>
 PREFIX oml:        <http://opencaesar.io/oml#>
@@ -11,8 +12,8 @@ WHERE {
 			base:aggregates [
 				a function:Exchange ;
 				oml:hasSource|oml:hasTarget [
-					a function:Port ;
-					function:isPortOf ?function
+					a function:Pin ;
+					function:isPinOf ?function
 				]
 			]
 		]

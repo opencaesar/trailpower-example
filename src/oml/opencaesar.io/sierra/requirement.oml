@@ -18,7 +18,7 @@ vocabulary <http://opencaesar.io/sierra/requirement#> as requirement {
 
 	concept Requirement < base:ContainableElement [
 		restricts all base:contains to Requirement
-		restricts all base:isContainedIn to Requirement
+		restricts all base:isContainedBy to Requirement
 	]
 
 	aspect DesignElement
