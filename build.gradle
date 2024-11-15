@@ -14,9 +14,11 @@ buildscript {
 		classpath "org.yaml:snakeyaml:2.+"
 		classpath "io.opencaesar.owl:owl-fuseki-gradle:$owl"
 		classpath "io.opencaesar.owl:owl-query-gradle:$owl"
+		classpath "io.opencaesar.owl:owl-shacl-gradle:$owl"
 		classpath "io.opencaesar.owl:owl-load-gradle:$owl"
 		classpath "io.opencaesar.owl:owl-save-gradle:$owl"
 		classpath "io.opencaesar.owl:owl-reason-gradle:$owl"
+		classpath "io.opencaesar.owl:owl-doc-gradle:$owl"
 		classpath "io.opencaesar.oml:oml-merge-gradle:$oml"
 		classpath "io.opencaesar.adapters:oml2owl-gradle:$oml"
 		classpath "io.opencaesar.adapters:owl2oml-gradle:$oml"
@@ -76,6 +78,23 @@ task omlToOwl(type:io.opencaesar.oml2owl.Oml2OwlTask, group:"oml", dependsOn: do
 }
 
 /*
+ * A task to generate documentation for the OWL catalog
+ * @seeAlso https://github.com/opencaesar/owl-tools/blob/master/owl-doc/README.md
+ */
+task generateDocs (type: io.opencaesar.owl.doc.OwlDocTask, dependsOn: omlToOwl) {
+    // OML catalog
+    inputCatalogPath = file('build/owl/catalog.xml')
+    // OML catalog title
+    inputCatalogTitle = oml.project.title
+    // OML catalog version
+    inputCatalogVersion = oml.project.version
+    // Output folder
+    outputFolderPath = file('build/docs')
+    // Output case sensitivie path
+    outputCaseSensitive = org.gradle.internal.os.OperatingSystem.current().isLinux()
+}
+
+/*
  * A task to run the Openllet reasoner on the OWL catalog
  * @seeAlso https://github.com/opencaesar/owl-tools/blob/master/owl-reason/README.md
  */
@@ -87,7 +106,7 @@ task reason(type:io.opencaesar.owl.reason.OwlReasonTask, group:"oml", dependsOn:
         "$oml.dataset.iri/properties = INVERSE_PROPERTY | ALL_SUBPROPERTY",
         "$oml.dataset.iri/individuals = ALL_INSTANCE | DATA_PROPERTY_VALUE | OBJECT_PROPERTY_VALUE | SAME_AS"
     ]
-	reportPath = file('build/logs/reasoning.xml')
+	reportPath = file("build/logs/${oml.dataset.name}/reasoning.xml")
 	uniqueNames = true
 }
 
@@ -113,32 +132,14 @@ task stopFuseki(type: io.opencaesar.owl.fuseki.StopFusekiTask, group:"oml") {
  * A task to load the dataset to a SPARQL tdb endpoint
  * @seeAlso https://github.com/opencaesar/owl-tools/blob/master/owl-load/README.md
  */
-task loadTdb(type:io.opencaesar.owl.load.OwlLoadTask, group:"oml", dependsOn: startFuseki) {
-	inputs.files(startFuseki.outputFolderPath.toString()+"fuseki.pid") // rerun when fuseki restarts
+task load(type:io.opencaesar.owl.load.OwlLoadTask, group:"oml", dependsOn: startFuseki) {
+	inputs.files(startFuseki.outputFolderPath) // rerun when fuseki restarts
 	catalogPath = file('build/owl/catalog.xml')
-	endpointURL = oml.dataset.url+".tdb"
+	endpointURL = oml.dataset.url
 	fileExtensions = ['owl', 'ttl']
-	iris = [ "$oml.dataset.iri" ]
+	iris = [ "$oml.dataset.iri/classes",  "$oml.dataset.iri/properties", "$oml.dataset.iri/individuals" ]
 	loadToDefaultGraph = false
 }
-
-/*
- * A task to load the dataset to a SPARQL inference endpoint
- * @seeAlso https://github.com/opencaesar/owl-tools/blob/master/owl-load/README.md
- */
-task loadInf(type:io.opencaesar.owl.load.OwlLoadTask, group:"oml", dependsOn: startFuseki) {
-	inputs.files(startFuseki.outputFolderPath.toString()+"fuseki.pid") // rerun when fuseki restarts
-	catalogPath = file('build/owl/catalog.xml')
-	endpointURL = oml.dataset.url+".inf"
-	fileExtensions = ['owl', 'ttl']
-	iris = [ "$oml.dataset.iri/classes",  "$oml.dataset.iri/properties" ]
-	loadToDefaultGraph = true
-}
-
-/*
- * A task to load the dataset to SPARQL endpoints
- */
-task load(group:"oml", dependsOn: [loadInf, loadTdb])
 
 /*
  * A task to run a set of SPARQL queries on a Fuseki dataset endpoint
@@ -146,10 +147,21 @@ task load(group:"oml", dependsOn: [loadInf, loadTdb])
  */
 task query(type:io.opencaesar.owl.query.OwlQueryTask, group:"oml", dependsOn: load) {
 	inputs.files(load.inputs.files) // rerun when the dataset changes
-	endpointURL = oml.dataset.url+".inf"
+	endpointURL = oml.dataset.url
 	queryPath = file(oml.dataset.queries)
 	resultPath = file("build/results/${oml.dataset.name}")
 	format = 'json'
+}
+
+/*
+ * A task to run a set of SHACL validation rules on a dataset endpoint
+ * @seeAlso https://github.com/opencaesar/owl-tools/blob/master/owl-shacl/README.md
+ */
+task validate(type:io.opencaesar.owl.shacl.OwlShaclTask, group:"oml", dependsOn: load) {
+    inputs.files(load.inputs.files) // rerun when the dataset changes
+	endpointURL = oml.dataset.url
+	queryPath = file(oml.dataset.validations)
+	resultPath = file("build/logs/${oml.dataset.name}")
 }
 
 /*
@@ -157,7 +169,7 @@ task query(type:io.opencaesar.owl.query.OwlQueryTask, group:"oml", dependsOn: lo
  * @seeAlso https://github.com/opencaesar/owl-tools/blob/master/owl-save/README.md
  */
 task saveTdb(type:io.opencaesar.owl.save.OwlSaveTask, group:"oml") {
-	inputs.files(startFuseki.outputFolderPath.toString()+"fuseki.pid") // rerun when fuseki restarts
+	inputs.files(startFuseki.outputFolderPath) // rerun when fuseki restarts
 	endpointURL = oml.dataset.url+".tdb"
 	catalogPath = file("build/save/${oml.dataset.name}/catalog.xml")
 	fileExtension = 'ttl'
