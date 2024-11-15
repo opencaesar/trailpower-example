@@ -1,8 +1,8 @@
 # Trailpower Example
 
-[![CI](https://github.com/opencaesar/trailpower-example/actions/workflows/ci.yml/badge.svg)](https://github.com/opencaesar/trailpower-example/actions/workflows/ci.yml)
-[![Pages](https://img.shields.io/badge/Pages-HTML-blue)](http://opencaesar.github.io/trailpower-example/)
-[![Gitpod](https://img.shields.io/badge/gitpod-open-blue?logo=gitpod)](https://gitpod.io/#https://github.com/opencaesar/trailpower-example)
+[![Build Status](https://github.com/opencaesar/trailpower-example/actions/workflows/ci.yml/badge.svg)](https://github.com/opencaesar/trailpower-example/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/opencaesar/trailpower-example?label=Release)](https://github.com/opencaesar/trailpower-example/releases/latest)
+[![Documentation](https://img.shields.io/badge/Documentation-HTML-orange)](https://www.opencaesar.io/trailpower-example/) 
 
 This is a description of the Trail Power system in [OML](https://github.com/opencaesar/oml) using the Sierra method.
 
