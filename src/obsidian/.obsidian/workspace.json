@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "254454d82e95714f",
+        "id": "6aa6a84d5a4a5c28",
         "type": "tabs",
         "children": [
           {
-            "id": "e692725e94f4dd9c",
+            "id": "da6eba4a3ba77773",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -69,8 +69,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -109,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "views/operational/Operational Functions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Operational Functions"
+              "title": "Outgoing links"
             }
           },
           {
@@ -162,12 +160,12 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 5
       },
       {
         "id": "5113a68cfc8cb917",
@@ -178,11 +176,9 @@
             "type": "leaf",
             "state": {
               "type": "file-properties",
-              "state": {
-                "file": "views/operational/Operational Functions.md"
-              },
+              "state": {},
               "icon": "lucide-info",
-              "title": "File properties for Operational Functions"
+              "title": "File properties"
             }
           }
         ]
@@ -202,11 +198,15 @@
       "obsidian-git:Open Git source control": false,
       "templater-obsidian:Templater": false,
       "obsidian42-brat:BRAT": false,
-      "mermaid-tools:Open Mermaid Toolbar": false
+      "mermaid-tools:Open Mermaid Toolbar": false,
+      "vscode-editor:Create Code File": false
     }
   },
-  "active": "774342f2360407a7",
+  "active": "da6eba4a3ba77773",
   "lastOpenFiles": [
+    "base.oml",
+    "MyClass.java",
+    "views/operational/Operational Functions.md",
     "views/operational/Operational Capabilities.md",
     "views/Trailpower Views.canvas",
     "metadata/classes/Actor.md",
@@ -232,8 +232,6 @@
     "notes/opencaesar.io/trailpower/operational/functions/Exchange 3.md",
     "notes/opencaesar.io/trailpower/operational/functions/Exchange 1.md",
     "notes/opencaesar.io/trailpower/operational/functions/Evaluate Performance.md",
-    "notes/opencaesar.io/trailpower/operational/functions/Disconnect Device.md",
-    "notes/opencaesar.io/trailpower/operational/functions/Disconnect 2.md",
     "views/Trailpower Picture.png",
     "views/Trailpower Homepage.canvas",
     "notes",
@@ -248,7 +246,6 @@
     "opencaesar.io/trailpower/logical/operational",
     "metadata/classes",
     "views",
-    "metadata/templates",
     "Untitled 1.canvas"
   ]
 }
