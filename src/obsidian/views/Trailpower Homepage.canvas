@@ -9,9 +9,9 @@
 		{"id":"018046a6c2b938a6","type":"link","url":"https://www.youtube.com/watch?v=FBsdb8JU2o4&list=PLfrEYVpSGVLywKkR4UWQ-R3ISIOLY9xke&index=4","x":-880,"y":140,"width":640,"height":360},
 		{"id":"926045b44dbae338","type":"link","url":"https://www.youtube.com/watch?v=H8aKL2Z1sJY&list=PLfrEYVpSGVLywKkR4UWQ-R3ISIOLY9xke&index=5","x":-160,"y":140,"width":640,"height":360},
 		{"id":"2d66c3d3d66961af","type":"file","file":"views/Trailpower Picture.png","x":-1820,"y":-337,"width":640,"height":657},
+		{"id":"8e3e68509757fb69","type":"link","url":"https://mbse-capella.org/","x":520,"y":-575,"width":400,"height":400},
 		{"id":"782038ee8c636122","type":"link","url":"https://www.youtube.com/watch?v=xU-gLvOTzU4&list=PLfrEYVpSGVLywKkR4UWQ-R3ISIOLY9xke&index=7","x":-160,"y":580,"width":640,"height":360},
-		{"id":"7c042516ada62db8","type":"link","url":"https://www.youtube.com/watch?v=vITV0TIeuC8&list=PLfrEYVpSGVLywKkR4UWQ-R3ISIOLY9xke&index=1","x":1240,"y":-240,"width":640,"height":360},
-		{"id":"8e3e68509757fb69","type":"link","url":"https://mbse-capella.org/","x":520,"y":-575,"width":400,"height":400}
+		{"id":"7c042516ada62db8","type":"link","url":"https://www.youtube.com/watch?v=vITV0TIeuC8&list=PLfrEYVpSGVLywKkR4UWQ-R3ISIOLY9xke&index=1","x":1240,"y":-240,"width":640,"height":360}
 	],
 	"edges":[
 		{"id":"876d375d39eb00c4","fromNode":"49f3f6879461f697","fromSide":"bottom","toNode":"bd83f8e2d49c591c","toSide":"top","label":"is an ontological\nversion of"},
