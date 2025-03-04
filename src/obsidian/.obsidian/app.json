@@ -1,9 +1,0 @@
-{
-  "alwaysUpdateLinks": true,
-  "userIgnoreFilters": [
-    "opencaesar.io/sierra/"
-  ],
-  "propertiesInDocument": "visible",
-  "promptDelete": false,
-  "readableLineLength": false
-}

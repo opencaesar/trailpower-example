@@ -1,45 +1,45 @@
 description <http://opencaesar.io/trailpower/operational/capabilities#> as capabilities {
 	
-	uses <http://opencaesar.io/sierra/capability#> as capability
+	uses <http://opencaesar.io/sierra/operation#> as operation
+
+	uses <http://opencaesar.io/sierra/base#> as base
 
 	// Actors
 
-	instance User : capability:Actor
+	instance User : operation:Actor
 	
-	instance Developer : capability:Actor
-	
+	instance Developer : operation:Actor
+
 	// Entities
-
-	instance Charger : capability:Entity
-
-	instance USB_Device : capability:Entity
 		
+	instance USB_Device : operation:Entity
+	
+	instance Sun : operation:Entity
+
 	// Capabilities
 
-	instance Provide_24h_Visibility : capability:Capability [
-		capability:involves User
-		capability:involves Charger
+	instance Provide_24h_Visibility : operation:Capability [
+		operation:involves User
 	]
 
-	instance Connect_to_USB_Device_Cable : capability:Capability [
-		capability:involves User
-		capability:involves Charger
-		capability:involves USB_Device
+	instance Connect_USB_Device : operation:Capability [
+		operation:involves User, USB_Device
 	]
 
-	instance Disconnect_USB_Device_Cable : capability:Capability [
-		capability:involves User
-		capability:involves Charger
-		capability:involves USB_Device
+	instance Disconnect_USB_Device : operation:Capability [
+		operation:involves User, USB_Device
 	]
 
-	instance Charge_USB_Device : capability:Capability [
-		capability:involves Charger
-		capability:involves USB_Device
+	instance Charge_USB_Device : operation:Capability [
+		base:contains Generate_Power
+		operation:involves USB_Device
 	]
 
-	instance Monitor_Operation_Remotey : capability:Capability [
-		capability:involves Charger
-		capability:involves Developer
+	instance Generate_Power : operation:Capability [
+		operation:involves Sun
+	]
+
+	instance Monitor_Operation_Remotey : operation:Capability [
+		operation:involves Developer
 	]
 }

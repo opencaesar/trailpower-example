@@ -1,6 +1,0 @@
----
-tags:
-  - Chain
-implements: 
-aggregates: 
----

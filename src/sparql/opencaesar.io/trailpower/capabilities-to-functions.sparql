@@ -1,4 +1,4 @@
-PREFIX capability:        <http://opencaesar.io/sierra/capability#>
+PREFIX operation:        <http://opencaesar.io/sierra/operation#>
 PREFIX component:        <http://opencaesar.io/sierra/component#>
 PREFIX function:        <http://opencaesar.io/sierra/function#>
 PREFIX base:        <http://opencaesar.io/sierra/base#>
@@ -6,15 +6,12 @@ PREFIX oml:        <http://opencaesar.io/oml#>
 
 SELECT DISTINCT	 *
 WHERE {
-	?capability a capability:Capability ;
+	?capability a operation:Capability ;
 		function:isImplementedBy [
-			a function:Chain ;
-			base:aggregates [
-				a function:Exchange ;
-				oml:hasSource|oml:hasTarget [
-					a function:Pin ;
-					function:isPinOf ?function
-				]
+			a function:Exchange ;
+			(oml:hasSource|oml:hasTarget) [
+				a function:Pin ;
+				function:isPinOf ?function
 			]
 		]
 }

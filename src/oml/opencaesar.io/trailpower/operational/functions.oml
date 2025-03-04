@@ -6,13 +6,17 @@ description <http://opencaesar.io/trailpower/operational/functions#> as function
 
 	extends <http://opencaesar.io/trailpower/operational/capabilities#> as capabilities
 
+	extends <http://opencaesar.io/trailpower/operational/components#> as components
+
+	uses <http://opencaesar.io/sierra/datatype#> as datatype
+
 	// Functions
 
 	instance Locate_Charger : function:Function [
 		function:isPerformedBy capabilities:User
 	]
 
-	instance Comprend_State : function:Function [
+	instance Comprehend_State : function:Function [
 		function:isPerformedBy capabilities:User
 	]
 
@@ -24,7 +28,7 @@ description <http://opencaesar.io/trailpower/operational/functions#> as function
 		function:isPerformedBy capabilities:User
 	]
 
-	instance Receive_Connection : function:Function [
+	instance Connect : function:Function [
 		function:isPerformedBy capabilities:USB_Device
 	]
 
@@ -36,142 +40,168 @@ description <http://opencaesar.io/trailpower/operational/functions#> as function
 		function:isPerformedBy capabilities:USB_Device
 	]
 
-	instance Illuminate_At_Night : function:Function [
-		function:isPerformedBy capabilities:Charger
-	]
-
-	instance Provide_State : function:Function [
-		function:isPerformedBy capabilities:Charger
-	]
-
-	instance Receive_Connection2 : function:Function [
-		function:isPerformedBy capabilities:Charger
-	]
-
-	instance Charge_Device : function:Function [
-		function:isPerformedBy capabilities:Charger
-	]
-
-	instance Disconnect2 : function:Function [
-		function:isPerformedBy capabilities:Charger
-	]
-
-	instance Provide_Performance_Information : function:Function [
-		function:isPerformedBy capabilities:Charger
-	]
-
 	instance Evaluate_Performance : function:Function [
 		function:isPerformedBy capabilities:Developer
 	]
 
+	instance Produce_Light : function:Function [
+		function:isPerformedBy capabilities:Sun
+	]
+
+	instance Illuminate_At_Night : function:Function [
+		function:isPerformedBy components:Trail_Power
+	]
+
+	instance Provide_State : function:Function [
+		function:isPerformedBy components:Trail_Power
+	]
+
+	instance Connect2 : function:Function [
+		function:isPerformedBy components:Trail_Power
+	]
+
+	instance Charge_Device : function:Function [
+		function:isPerformedBy components:Trail_Power
+	]
+
+	instance Disconnect2 : function:Function [
+		function:isPerformedBy components:Trail_Power
+	]
+
+	instance Provide_Performance_Information : function:Function [
+		function:isPerformedBy components:Trail_Power
+	]
+
+	instance Convert_Light_to_Electrical_Energy : function:Function [
+		function:isPerformedBy components:Trail_Power
+	]
+
 	// Items
 
-	instance Charger_Light : function:Item
+	instance Charger_Light : datatype:PrimitiveType
 
-	instance Charger_State : function:Item
+	instance Charger_State : datatype:PrimitiveType
 
-	instance State : function:Item
+	instance Device_Connection : datatype:PrimitiveType
 
-	instance Device_Connection : function:Item
+	instance State : datatype:PrimitiveType
 
-	instance Charger_Connection : function:Item
+	instance Charger_Connection : datatype:PrimitiveType
 
-	instance Energy : function:Item
+	instance Power : datatype:PrimitiveType
 
-	instance Device_Disconnect : function:Item
+	instance Energy : datatype:PrimitiveType
 
-	instance Charger_Disconnect : function:Item
+	instance Device_Disconnect : datatype:PrimitiveType
 
-	instance Performance : function:Item
+	instance Charger_Disconnect : datatype:PrimitiveType
 
-	instance Location : function:Item
+	instance Convergence_Performance : datatype:PrimitiveType
+
+	instance Performance : datatype:PrimitiveType
+
+	instance Light : datatype:PrimitiveType
+
+	instance Illuminate : datatype:PrimitiveType
 
 	// Exchanges
 
-	relation instance Exchange1 : function:Exchange [
+	relation instance Exchange01 : function:Exchange [
 		from Illuminate_At_Night
 		to Locate_Charger
-		function:conveys Charger_Light
+		function:transmits Charger_Light
+		function:implements capabilities:Provide_24h_Visibility
 	]
 
-	relation instance Exchange2 : function:Exchange [
+	relation instance Exchange02 : function:Exchange [
 		from Provide_State
-		to Comprend_State
-		function:conveys Charger_State
+		to Comprehend_State
+		function:transmits Charger_State
+		function:implements capabilities:Connect_USB_Device
 	]
 
-	relation instance Exchange3 : function:Exchange [
-		from Comprend_State
+	relation instance Exchange03 : function:Exchange [
+		from Comprehend_State
 		to Connect_Device
-		function:conveys State
+		function:transmits State
+		function:implements capabilities:Connect_USB_Device
 	]
 
-	relation instance Exchange4 : function:Exchange [
+	relation instance Exchange04 : function:Exchange [
 		from Connect_Device
-		to Receive_Connection
-		function:conveys Device_Connection
+		to Connect
+		function:transmits Device_Connection
+		function:implements capabilities:Connect_USB_Device
 	]
 
-	relation instance Exchange5 : function:Exchange [
+	relation instance Exchange05 : function:Exchange [
 		from Connect_Device
-		to Receive_Connection2
-		function:conveys Charger_Connection
+		to Connect2
+		function:transmits Charger_Connection
+		function:implements capabilities:Connect_USB_Device
 	]
 
-	relation instance Exchange6 : function:Exchange [
+	relation instance Exchange06 : function:Exchange [
+		from Convert_Light_to_Electrical_Energy
+		to Charge_Device
+		function:transmits Power
+		function:implements capabilities:Charge_USB_Device
+	]
+
+	relation instance Exchange07 : function:Exchange [
 		from Charge_Device
 		to Accept_Charger
-		function:conveys Energy
+		function:transmits Energy
+		function:implements capabilities:Charge_USB_Device
 	]
 
-	relation instance Exchange7 : function:Exchange [
+	relation instance Exchange08 : function:Exchange [
 		from Disconnect_Device
 		to Disconnect
-		function:conveys Device_Disconnect
+		function:transmits Device_Disconnect
+		function:implements capabilities:Disconnect_USB_Device
 	]
 
-	relation instance Exchange8 : function:Exchange [
+	relation instance Exchange09 : function:Exchange [
 		from Disconnect_Device
 		to Disconnect2
-		function:conveys Charger_Disconnect
-	]
-
-	relation instance Exchange9 : function:Exchange [
-		from Provide_Performance_Information
-		to Evaluate_Performance
-		function:conveys Performance
+		function:transmits Charger_Disconnect
+		function:implements capabilities:Disconnect_USB_Device
 	]
 
 	relation instance Exchange10 : function:Exchange [
-		from Locate_Charger
-		to Comprend_State
-		function:conveys Location
-	]
-
-	// Chains
-	
-	instance Provide_24h_Visibility : function:Chain [
-		function:implements capabilities:Provide_24h_Visibility
-		base:aggregates Exchange1
-	]
-
-	instance Connect_USB_Device : function:Chain [
-		function:implements capabilities:Connect_to_USB_Device_Cable
-		base:aggregates Exchange2, Exchange3, Exchange4, Exchange5
-	]
-
-	instance Charge_USB_Device : function:Chain [
-		function:implements capabilities:Charge_USB_Device
-		base:aggregates Exchange6
-	]
-
-	instance Disconnect_USB_Device : function:Chain [
-		function:implements capabilities:Disconnect_USB_Device_Cable
-		base:aggregates Exchange7, Exchange8
-	]
-
-	instance Monitor_Operation_Remotely : function:Chain [
+		from Convert_Light_to_Electrical_Energy
+		to Provide_Performance_Information
+		function:transmits Convergence_Performance
 		function:implements capabilities:Monitor_Operation_Remotey
-		base:aggregates Exchange9
 	]
+
+	relation instance Exchange11 : function:Exchange [
+		from Provide_Performance_Information
+		to Evaluate_Performance
+		function:transmits Performance
+		function:implements capabilities:Monitor_Operation_Remotey
+	]
+
+	relation instance Exchange12 : function:Exchange [
+		from Produce_Light
+		to Convert_Light_to_Electrical_Energy
+		function:transmits Light
+		function:implements capabilities:Charge_USB_Device
+	]
+
+	relation instance Exchange13 : function:Exchange [
+		from Convert_Light_to_Electrical_Energy
+		to Illuminate_At_Night
+		function:transmits Illuminate
+		function:implements capabilities:Provide_24h_Visibility
+	]
+
+	relation instance Exchange14 : function:Exchange [
+		from Charge_Device
+		to Provide_State
+		function:transmits State
+		function:implements capabilities:Connect_USB_Device
+	]
+
 }

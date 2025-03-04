@@ -1,0 +1,37 @@
+vocabulary <http://opencaesar.io/sierra/obsidian/annotations#> as annotations {
+
+	extends <http://opencaesar.io/obsidian#> as obsidian
+
+    extends <http://opencaesar.io/sierra/component#> as component
+
+	extends <http://opencaesar.io/sierra/operation#> as operation
+
+	extends <http://opencaesar.io/sierra/function#> as function
+
+	extends <http://opencaesar.io/sierra/datatype#> as datatype
+
+    @obsidian:hasIcon "rocket"
+	ref concept component:System
+
+    @obsidian:hasIcon "user"
+	ref concept operation:Actor
+
+    @obsidian:hasIcon "orbit"
+	ref concept operation:Entity
+
+    @obsidian:hasIcon "check"
+	ref concept operation:Capability
+
+    @obsidian:hasIcon "square-function"
+	ref concept function:Function
+
+    @obsidian:hasIcon "move-up-right"
+	ref relation entity function:Exchange
+
+    @obsidian:hasIcon "send"
+	ref concept datatype:PrimitiveType
+
+    @obsidian:hasIcon "send"
+	ref concept datatype:CompositeType
+
+}

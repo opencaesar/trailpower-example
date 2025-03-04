@@ -1,8 +1,0 @@
-methodology:
-  iri: http://opencaesar.io/sierra/methodolody
-  label: Sierra Methodology
-  description: This is the Sierra methodology for systems engineering
-  viewpoints:
-    -
-      folder: /operational
-      iri: http://opencaesar.io/sierra/capabilities-diagram

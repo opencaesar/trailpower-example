@@ -143,117 +143,117 @@ description <http://opencaesar.io/trailpower/physical/components#> as components
 
 	// Connections
 
-	relation instance S-SC : component:Connection [
+	relation instance S-SC : component:Connector [
 		from Sun.port1
 		to Solar_Cell.port1
 	]
 
-	relation instance A-WR : component:Connection [
+	relation instance A-WR : component:Connector [
 		from Antenna.port2
 		to Wifi_Router.port1
 	]
 
-	relation instance WR-WR : component:Connection [
+	relation instance WR-WR : component:Connector [
 		from Wifi_Router.port1
 		to Wifi_Router.port2
 	]
 
-	relation instance WR-I : component:Connection [
+	relation instance WR-I : component:Connector [
 		from Wifi_Router.port2
 		to Internet.port1
 	]
 
-	relation instance I-I : component:Connection [
+	relation instance I-I : component:Connector [
 		from Internet.port1
 		to Internet.port2
 	]
 
-	relation instance I-TK : component:Connection [
+	relation instance I-TK : component:Connector [
 		from Internet.port2
 		to Thing_Speak_Cloud.port1
 	]
 
-	relation instance TSP-D : component:Connection [
+	relation instance TSP-D : component:Connector [
 		from Thing_Speak_Cloud.port2
 		to Developer.port1
 	]
 
-	relation instance CBL0UD : component:Connection [
+	relation instance CBL0UD : component:Connector [
 		from USB_Cable.port1
 		to USB_Device.port1
 	]
 
-	relation instance CIB-U : component:Connection [
+	relation instance CIB-U : component:Connector [
 		from Charger_Indication_Board.port3
 		to User.port1
 	]
 
-	relation instance LH-U : component:Connection [
+	relation instance LH-U : component:Connector [
 		from Lights_and_Harness.port1
 		to User.port2
 	]
 
-	relation instance BP-CB : component:Connection [
+	relation instance BP-CB : component:Connector [
 		from Solar_Cell.port2
 		to Charge_Box.port1
 	]
 
-	relation instance Ph-A : component:Connection [
+	relation instance Ph-A : component:Connector [
 		from Photon_Particle.port1
 		to Antenna.port1
 	]
 
-	relation instance A-A : component:Connection [
+	relation instance A-A : component:Connector [
 		from Antenna.port1
 		to Antenna.port2
 	]
 
-	relation instance PP-TPCBA : component:Connection [
+	relation instance PP-TPCBA : component:Connector [
 		from Photon_Particle.port2
 		to Telemetry_PCBA.port1
 	]
 
-	relation instance TPCBA-CB : component:Connection [
+	relation instance TPCBA-CB : component:Connector [
 		from Telemetry_PCBA.port2
 		to Charge_Box.port1
 	]
 
-	relation instance CB-LH : component:Connection [
+	relation instance CB-LH : component:Connector [
 		from Charge_Box.port1
 		to Lights_and_Harness.port2
 	]
 
-	relation instance CBL-CBL : component:Connection [
+	relation instance CBL-CBL : component:Connector [
 		from USB_Cable.port1
 		to USB_Cable.port2
 	]
 
-	relation instance B-CBL : component:Connection [
+	relation instance B-CBL : component:Connector [
 		from USB_Cable.port2
 		to Boost.port1
 	]
 
-	relation instance CB-CIB : component:Connection [
+	relation instance CB-CIB : component:Connector [
 		from Charge_Box.port1
 		to Charger_Indication_Board.port1
 	]
 
-	relation instance F-CIB : component:Connection [
+	relation instance F-CIB : component:Connector [
 		from Fuse.port1
 		to Charger_Indication_Board.port2
 	]
 
-	relation instance CIB-B : component:Connection [
+	relation instance CIB-B : component:Connector [
 		from Charger_Indication_Board.port4
 		to Boost.port2
 	]
 
-	relation instance BAT1-Fuse : component:Connection [
+	relation instance BAT1-Fuse : component:Connector [
 		from LI_18650_1.port1
 		to Fuse.port2
 	]
 
-	relation instance BAT2-Fuse : component:Connection [
+	relation instance BAT2-Fuse : component:Connector [
 		from LI_18650_2.port1
 		to Fuse.port3
 	]

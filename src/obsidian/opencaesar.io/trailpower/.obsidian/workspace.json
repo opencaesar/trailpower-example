@@ -1,0 +1,264 @@
+{
+  "main": {
+    "id": "480dddaaa19a6134",
+    "type": "split",
+    "children": [
+      {
+        "id": "f66a892ebff6b735",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2bc7e4c633c40728",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "data/Methodology.canvas",
+                "viewState": {
+                  "x": 220,
+                  "y": -1110,
+                  "zoom": -0.06254146606871311
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Methodology"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "48cdfac9c7c2f3d2",
+    "type": "split",
+    "children": [
+      {
+        "id": "66727fc405bbaf93",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "de76b684ae2eb43c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6ec3c06c07435e82",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "phase",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "774342f2360407a7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 296.5
+  },
+  "right": {
+    "id": "aaf7c1a9ba7e24cb",
+    "type": "split",
+    "children": [
+      {
+        "id": "31994af6b68e0782",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "05188f5dfd394234",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "data/Methodology.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Methodology"
+            }
+          },
+          {
+            "id": "e71dbd9d944e59fb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "f140a007d8b5cde8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "fc6363e6aa708a61",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "methodology/views/Operational.canvas"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Operational"
+            }
+          },
+          {
+            "id": "5b42d2c7783b10c9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "00655bef9442af2e",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5113a68cfc8cb917",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0ee377d60c185945",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "data/Methodology.canvas"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for Methodology"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 439.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false,
+      "templater-obsidian:Templater": false,
+      "obsidian42-brat:BRAT": false
+    }
+  },
+  "active": "2bc7e4c633c40728",
+  "lastOpenFiles": [
+    "data/operational/Identify Capabilities.canvas",
+    "data/Methodology.canvas",
+    "data/operational/Identify Entities.canvas",
+    "data/operational/capabilities/Capabiblity43.md",
+    "data/operational/entities/Sun.md",
+    "data/operational/Identify Exchanges.canvas",
+    "data/operational/Identify Data Types.canvas",
+    "data/operational/datatypes/Charge Light.md",
+    "data/operational/Identify Functions.canvas",
+    "data/operational/functions/Accept Charger.md",
+    "data/operational/exchanges/Exchange01.md",
+    "data/operational/datatypes/USB Cable End.md",
+    "metadata/templates/datatype/New PrimitiveType.md",
+    "metadata/templates/datatype/New CompositeType.md",
+    "data/operational/datatypes/Sun Light.md",
+    "data/operational/datatypes/State of Charge.md",
+    "data/operational/datatypes/Power.md",
+    "data/operational/datatypes/Performance.md",
+    "data/operational/exchanges/Exchange12.md",
+    "data/operational/exchanges/Exchange02.md",
+    "Trail.md",
+    "USB.md",
+    "data/operational/actors/User.md",
+    "data/operational/actors/Developer.md",
+    "data/operational/entities/USB Device.md",
+    "data/operational/systems/Trail Power.md",
+    "data/operational/functions/Disconnect2.md",
+    "data/operational/capabilities/Monitor Operations Remotely.md",
+    "data/operational/capabilities/Provide 24h Visibility.md",
+    "data/operational/functions/Convert Light To Electrical Power.md",
+    "data/operational/functions/Disconnect.md",
+    "metadata/templates/datatype",
+    "metadata/classes/datatype",
+    "data/operational/datatypes",
+    "data/operational/exchanges",
+    "data/operational 1/systems",
+    "data/operational 1/scenarios",
+    "data/operational 1/functions",
+    "data/operational 1/entities",
+    "data/operational 1/capabilities",
+    "data/operational 1/actors",
+    "data/operational 1/Identify Functions.canvas",
+    "data/operational 1/Identify Entities.canvas",
+    "data/operational 1/Identify Capabilities.canvas",
+    "model/Trailpower Homepage.canvas",
+    "temp/Notes/Whiteboard-2024-12-12.png",
+    "temp/Notes/muralBoard.png",
+    "views/Trailpower Picture.png"
+  ]
+}

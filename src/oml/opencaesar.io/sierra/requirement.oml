@@ -4,7 +4,55 @@ vocabulary <http://opencaesar.io/sierra/requirement#> as requirement {
 
 	extends <http://opencaesar.io/sierra/base#> as base
 
+	// Aspects
+
+	aspect SatisfyingElement
+
+	aspect VerifyingElement
+
+	// Concepts
+
+	concept Requirement < base:IdentifiableElement, base:ContainableElement, base:RefinableElement [
+		restricts all base:contains to Requirement
+		restricts all base:isContainedBy to Requirement
+		restricts all base:refines to Requirement
+		restricts all base:isRefinedBy to Requirement
+	]
+
 	concept Constraint
+
+	// Relations
+
+    relation satisfies [
+        from SatisfyingElement
+        to Requirement
+        reverse isSatisfiedBy
+    ]
+
+	relation verifies [
+		from VerifyingElement
+		to Requirement
+		reverse isVerifieddBy
+		inverse functional
+	]
+
+	relation hasConstraint [
+		from Requirement
+		to Constraint
+		inverse functional
+	]
+
+	// Properties
+
+	scalar property hasStatement [
+		domain Requirement
+		range xsd:string
+	]
+
+	scalar property hasRationale [
+		domain Requirement
+		range xsd:string
+	]
 
 	scalar property hasExpression [
 		domain Constraint
@@ -14,52 +62,5 @@ vocabulary <http://opencaesar.io/sierra/requirement#> as requirement {
 	scalar property isExpressedIn [
 		domain Constraint
 		range xsd:string
-	]
-
-	concept Requirement < base:ContainableElement [
-		restricts all base:contains to Requirement
-		restricts all base:isContainedBy to Requirement
-	]
-
-	aspect DesignElement
-
-	scalar property hasRationale [
-		domain Requirement
-		range xsd:string
-	]
-
-	relation hasConstraint [
-		from Requirement
-		to Constraint
-		inverse functional
-	]
-
-	relation derives [
-		from Requirement
-		to Requirement
-		reverse isDerivedFrom
-		irreflexive
-		asymmetric
-	]
-
-	relation refines [
-		from Requirement
-		to Requirement
-		reverse isRefinedBy
-		irreflexive
-		asymmetric
-	]
-
-	relation specifies [
-		from Requirement
-		to DesignElement
-		reverse isSpecificedBy
-		inverse functional
-	]
-
-	relation justifies [
-		from Requirement
-		to DesignElement
-		reverse isJustifiedBy
 	]
 }

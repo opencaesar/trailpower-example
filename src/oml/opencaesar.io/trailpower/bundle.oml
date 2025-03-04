@@ -4,10 +4,7 @@ description bundle <http://opencaesar.io/trailpower/bundle#> as ^bundle {
 
 	includes <http://opencaesar.io/trailpower/operational/capabilities#>
 	includes <http://opencaesar.io/trailpower/operational/functions#>
-
-	includes <http://opencaesar.io/trailpower/system/capabilities#>
-	includes <http://opencaesar.io/trailpower/system/functions#>
-	includes <http://opencaesar.io/trailpower/system/components#>
+	includes <http://opencaesar.io/trailpower/operational/components#>
 
 	includes <http://opencaesar.io/trailpower/logical/capabilities#>
 	includes <http://opencaesar.io/trailpower/logical/functions#>

@@ -1,0 +1,8 @@
+vocabulary <http://opencaesar.io/obsidian#> as obsidian {
+
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+	@rdfs:seeAlso "https://lucide.dev"
+    annotation property hasIcon
+
+}

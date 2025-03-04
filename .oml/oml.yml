@@ -1,8 +1,11 @@
 project:
-   title: Power Trail Example
-   description: This is the power trail system description in OML
+   title: Trail Power Example
+   description: This is the trail power system description in OML
    group: io.opencaesar
    version: 1.0.0
+
+repositories:
+   - https://repo.maven.apache.org/maven2
 
 dependencies:
    - io.opencaesar.ontologies:core-vocabularies:5.+

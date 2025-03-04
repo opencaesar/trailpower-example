@@ -1,3 +1,45 @@
 vocabulary <http://opencaesar.io/sierra/scenario#> as scenario {
 	
+    extends <http://opencaesar.io/sierra/requirement#> as requirement
+
+	extends <http://opencaesar.io/sierra/operation#> as operation
+
+	extends <http://opencaesar.io/sierra/function#> as function
+
+    // Aspects
+
+	aspect DerivingElement
+
+    // Concepts
+
+	concept Scenario < DerivingElement [
+        restricts all derives to requirement:Requirement
+        restricts all isDrivenBy to requirement:Requirement
+    ]
+
+    ref concept requirement:Requirement < DerivingElement [
+        restricts all derives to Scenario
+        restricts all isDrivenBy to Scenario
+    ]
+
+    concept Instance
+
+    // Relation
+
+    relation derives [
+        from DerivingElement
+        to DerivingElement
+        reverse isDrivenBy
+    ]
+
+    relation demonstrates [
+        from Scenario
+        to operation:Capability
+        functional
+    ]
+
+    relation represents [
+        from Instance
+        to  function:PerformingElement
+    ]
 }

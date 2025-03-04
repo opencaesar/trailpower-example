@@ -4,9 +4,41 @@ vocabulary <http://opencaesar.io/sierra/component#> as component {
 
 	extends <http://opencaesar.io/sierra/base#> as base
 
+	extends <http://opencaesar.io/sierra/operation#> as operation
+
+	extends <http://opencaesar.io/sierra/requirement#> as requirement
+
+	extends <http://opencaesar.io/sierra/function#> as function
+
+	// Aspects
+
+	aspect PresentingElement
+
+	// Concepts
+
+	concept Component < base:ContainableElement, base:SpecializableElement, requirement:SatisfyingElement, function:PerformingElement, PresentingElement [
+		restricts all base:contains to Component
+		restricts all base:isContainedBy to Component
+		restricts all base:specializes to Component
+		restricts all base:isSpecializedBy to Component
+	]
+
+	concept System < Component [
+		restricts all base:isContainedBy to System
+		restricts all base:specializes to System
+		restricts all base:isSpecializedBy to System
+	]
+
 	concept Interface
 
-	relation entity Connection [
+	concept Path < base:AggregatableElement [
+		restricts all base:aggregates to Connector
+		restricts all base:isAggregatedBy to owl:Nothing
+	]
+
+	// Relations
+
+	relation entity Connector [
 		from Interface
 		to Interface
 		forward sendsTo
@@ -16,13 +48,6 @@ vocabulary <http://opencaesar.io/sierra/component#> as component {
 		restricts all base:isAggregatedBy to Path
 	]
 
-	concept Path < base:AggregatableElement [
-		restricts all base:aggregates to Connection
-		restricts all base:isAggregatedBy to owl:Nothing
-	]
-
-	aspect PresentingElement
-
 	relation presents [
 		from PresentingElement
 		to Interface
@@ -30,15 +55,11 @@ vocabulary <http://opencaesar.io/sierra/component#> as component {
 		inverse functional
 	]
 
-	concept Component < base:ContainableElement, base:SpecializableElement, PresentingElement [
-		restricts all base:contains to Component
-		restricts all base:isContainedBy to Component
-		restricts all base:specializes to Component
-		restricts all base:isSpecializedBy to Component
-	]
-
-	concept System < Component [
-		restricts all base:isContainedBy to owl:Nothing
+	relation supports [
+		from System
+		to operation:Capability
+		reverse isSupportedBy
+		inverse functional
 	]
 
 }

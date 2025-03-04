@@ -1,0 +1,60 @@
+vocabulary <http://opencaesar.io/sierra/operation#> as operation {
+	
+    extends <http://opencaesar.io/sierra/base#> as base
+
+	extends <http://opencaesar.io/sierra/function#> as function
+
+	extends <http://opencaesar.io/sierra/component#> as component
+
+    // Aspects
+
+    aspect OperationalElement
+
+    // Concepts
+
+    concept Mission
+
+    concept Objective < base:ContainableElement [
+        restricts all base:contains to Objective
+        restricts all base:isContainedBy to Objective
+    ]
+
+	concept Actor < base:SpecializableElement, function:PerformingElement, component:PresentingElement, OperationalElement [
+		restricts all base:specializes to Actor
+		restricts all base:isSpecializedBy to Actor
+	]
+
+	concept Entity < base:SpecializableElement, function:PerformingElement, component:PresentingElement, OperationalElement [
+		restricts all base:specializes to Entity
+		restricts all base:isSpecializedBy to Entity
+	]
+
+	concept Capability < base:SpecializableElement, base:ContainableElement [
+		restricts all base:specializes to Capability
+		restricts all base:isSpecializedBy to Capability
+		restricts all base:contains to Capability
+		restricts all base:isContainedBy to Capability
+	]
+
+    // Relation
+
+    relation pursues [
+        from Mission
+        to Objective
+        reverse isPursuedBy
+        inverse functional
+    ]
+
+    relation realizes [
+        from Capability
+        to Objective
+        reverse isRealizedBy
+        inverse functional
+    ]
+
+	relation involves [
+		from Capability
+		to OperationalElement
+		reverse inInvolvedIn
+	]
+}

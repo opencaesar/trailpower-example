@@ -4,61 +4,56 @@ vocabulary <http://opencaesar.io/sierra/function#> as function {
 
 	extends <http://opencaesar.io/sierra/base#> as base
 
-	extends <http://opencaesar.io/sierra/component#> as component
+	extends <http://opencaesar.io/sierra/datatype#> as datatype
 
-	extends <http://opencaesar.io/sierra/capability#> as capability
+	extends <http://opencaesar.io/sierra/operation#> as operation
+
+	extends <http://opencaesar.io/sierra/requirement#> as requirement
+
+	// Aspects
+
+	aspect PerformingElement
 
 	aspect ExchangingElement
+
+	// Concepts
+
+	concept Function < requirement:SatisfyingElement, ExchangingElement
+
+	concept Pin < ExchangingElement
+
+	concept InputPin < Pin
+
+	concept OutputPin < Pin
+
+	// Relations
 
 	relation entity Exchange [
 		from ExchangingElement
 		to ExchangingElement
 		forward sendsTo
 		reverse receivesFrom
-	] < base:AggregatableElement [
-		restricts all base:aggregates to owl:Nothing
-		restricts all base:isAggregatedBy to Chain
 	]
 
-	concept Item
-
-	relation conveys [
+	relation transmits [
 		from Exchange
-		to Item
-		reverse isConveyedBy
+		to datatype:DataType
+		reverse isTransmittedBy
 		functional
-	]
-
-	concept Chain < base:AggregatableElement [
-		restricts all base:aggregates to Exchange
-		restricts all base:isAggregatedBy to owl:Nothing
 	]
 
 	relation implements [
-		from Chain
-		to capability:Capability
+		from Exchange
+		to operation:Capability
 		reverse isImplementedBy
-		functional
-		inverse functional
 	]
-
-	aspect PerformingElement
-
-	ref concept capability:Actor < PerformingElement
-
-	ref concept capability:Entity < PerformingElement
-
-	ref concept component:Component < PerformingElement
-
-	concept Function < ExchangingElement
 
 	relation performs [
 		from PerformingElement
 		to Function
 		reverse isPerformedBy
+		inverse functional
 	]
-
-	concept Pin < ExchangingElement
 
 	relation hasPin [
 		from Function
@@ -67,20 +62,16 @@ vocabulary <http://opencaesar.io/sierra/function#> as function {
 		inverse functional
 	]
 
-	concept Input < Pin
-
 	relation hasInput [
 		from Function
-		to Input
+		to InputPin
 		reverse isInputOf
 	] < hasPin
 
-	concept Output < Pin
-
 	relation hasOutput [
 		from Function
-		to Output
+		to OutputPin
 		reverse isOutputOf
 	] < hasPin
 
-}
+}	

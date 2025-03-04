@@ -1,0 +1,8 @@
+description <http://opencaesar.io/trailpower/operational/components#> as components {
+	
+	uses <http://opencaesar.io/sierra/component#> as component
+
+	// Components
+
+	instance Trail_Power : component:System
+}

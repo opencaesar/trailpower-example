@@ -1,6 +1,22 @@
 vocabulary <http://opencaesar.io/sierra/base#> as base {
 
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	// Aspects
+
+	aspect IdentifiableElement [
+		key hasId
+	]
+
 	aspect ContainableElement
+
+	aspect AggregatableElement
+
+	aspect SpecializableElement
+
+	aspect RefinableElement
+
+	// Relations
 
 	relation contains [
 		from ContainableElement
@@ -11,8 +27,6 @@ vocabulary <http://opencaesar.io/sierra/base#> as base {
 		inverse functional
 	]
 
-	aspect AggregatableElement
-
 	relation aggregates [
 		from AggregatableElement
 		to AggregatableElement
@@ -21,8 +35,6 @@ vocabulary <http://opencaesar.io/sierra/base#> as base {
 		asymmetric
 	]
 
-	aspect SpecializableElement
-
 	relation specializes [
 		from SpecializableElement
 		to SpecializableElement
@@ -30,7 +42,25 @@ vocabulary <http://opencaesar.io/sierra/base#> as base {
 		transitive
 	]
 
-	annotation property label
+	relation refines [
+		from RefinableElement
+		to RefinableElement
+		reverse isRefinedBy
+		irreflexive
+		asymmetric
+	]
 
-	annotation property ^description
+	// Properties
+
+	scalar property hasId [
+		domain IdentifiableElement
+		range xsd:string
+		functional
+	]
+
+	scalar property hasDescription [
+		range xsd:string
+		functional
+	]
+
 }
