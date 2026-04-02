@@ -2,8 +2,6 @@ description <http://opencaesar.io/trailpower/operational/functions#> as function
 
 	uses <http://opencaesar.io/sierra/function#> as function
 
-	uses <http://opencaesar.io/sierra/base#> as base
-
 	extends <http://opencaesar.io/trailpower/operational/capabilities#> as capabilities
 
 	extends <http://opencaesar.io/trailpower/operational/components#> as components

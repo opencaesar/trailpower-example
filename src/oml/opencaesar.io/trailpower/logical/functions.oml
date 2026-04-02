@@ -2,8 +2,6 @@ description <http://opencaesar.io/trailpower/logical/functions#> as functions {
 
 	uses <http://opencaesar.io/sierra/function#> as function
 
-	uses <http://opencaesar.io/sierra/base#> as base
-
 	uses <http://opencaesar.io/sierra/datatype#> as datatype
 
 	extends <http://opencaesar.io/trailpower/logical/capabilities#> as capabilities

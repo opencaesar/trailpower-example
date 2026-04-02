@@ -48,7 +48,7 @@ oml.dataset.name = dataset_name
  */
 repositories {
 	mavenLocal()
-	oml.repositories.each { maven { url = uri("$it") } }
+	oml.repositories.each { u -> maven { url= u } }
 }
 
 /*
@@ -289,18 +289,24 @@ publishing {
 			}
 		}
 	}
+    repositories {
+        maven {
+            name = 'ossrh-staging-api'
+            url = "https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/"          
+            credentials {
+                username = project.findProperty('ossrhUsername')
+                password = project.findProperty('ossrhPassword')
+            }
+        }
+    }
 }
 
 signing {
-	def pgpSigningKey = findProperty('pgpSigningKey')
-	if (pgpSigningKey != null) { pgpSigningKey = new String(pgpSigningKey.decodeBase64()) }
-	def pgpSigningPassword = findProperty('pgpSigningPassword')
-	useInMemoryPgpKeys(pgpSigningKey, pgpSigningPassword)
-	sign publishing.publications.maven
-}
-
-gradle.taskGraph.whenReady { taskGraph ->
-	signMavenPublication.onlyIf { taskGraph.allTasks.any{it.name == 'publishMavenPublicationToSonatypeRepository'} }
+    def pgpSigningKey = project.findProperty('pgpSigningKey')
+    if (pgpSigningKey != null) { pgpSigningKey = new String(pgpSigningKey.decodeBase64()) }
+    def pgpSigningPassword = project.findProperty('pgpSigningPassword')
+    useInMemoryPgpKeys(pgpSigningKey, pgpSigningPassword)
+    sign publishing.publications.maven
 }
 
 /*

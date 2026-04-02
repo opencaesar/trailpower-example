@@ -1,9 +1,5 @@
 vocabulary <http://opencaesar.io/sierra/function#> as function {
 
-	extends <http://www.w3.org/2002/07/owl#> as owl
-
-	extends <http://opencaesar.io/sierra/base#> as base
-
 	extends <http://opencaesar.io/sierra/datatype#> as datatype
 
 	extends <http://opencaesar.io/sierra/operation#> as operation
